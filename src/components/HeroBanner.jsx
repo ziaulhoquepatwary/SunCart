@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { slides } from "@/data/hero-banner";
-import { FiArrowRight, FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { slides } from "@/data/home-page-cards-data";
+import { FiArrowRight } from "react-icons/fi";
 
 function HeroBanner() {
     const [index, setIndex] = useState(0);

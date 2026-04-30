@@ -68,7 +68,7 @@ export const summerProducts = [
   {
     "id": 7,
     "name": "Waterproof Bluetooth Speaker",
-    "brand": "SonicWave",
+    "brand": "SunShade",
     "price": 85,
     "rating": 4.4,
     "stock": 30,
@@ -79,7 +79,7 @@ export const summerProducts = [
   {
     "id": 8,
     "name": "Microfiber Travel Towel",
-    "brand": "DrySwift",
+    "brand": "PureShield",
     "price": 18,
     "rating": 4.7,
     "stock": 150,
@@ -90,7 +90,7 @@ export const summerProducts = [
   {
     "id": 9,
     "name": "Inflatable Flamingo Float",
-    "brand": "PoolJoy",
+    "brand": "GlowGuard",
     "price": 28,
     "rating": 4.2,
     "stock": 65,
@@ -101,7 +101,7 @@ export const summerProducts = [
   {
     "id": 10,
     "name": "Aloe Vera After-Sun Gel",
-    "brand": "PureCool",
+    "brand": "ShoreShelter",
     "price": 12,
     "rating": 4.9,
     "stock": 180,
@@ -112,7 +112,7 @@ export const summerProducts = [
   {
     "id": 11,
     "name": "Leather Flip Flops",
-    "brand": "TideWalker",
+    "brand": "IsleStyle",
     "price": 50,
     "rating": 4.5,
     "stock": 90,
@@ -123,7 +123,7 @@ export const summerProducts = [
   {
     "id": 12,
     "name": "Insulated Water Bottle",
-    "brand": "HydroPeak",
+    "brand": "BreezeWear",
     "price": 32,
     "rating": 4.8,
     "stock": 110,
@@ -134,7 +134,7 @@ export const summerProducts = [
   {
     "id": 13,
     "name": "Wide Brim Sun Hat",
-    "brand": "ShadowLuxe",
+    "brand": "SunShade",
     "price": 38,
     "rating": 4.6,
     "stock": 45,
@@ -145,7 +145,7 @@ export const summerProducts = [
   {
     "id": 14,
     "name": "Floral Summer Maxi Dress",
-    "brand": "PetalPath",
+    "brand": "PureShield",
     "price": 75,
     "rating": 4.7,
     "stock": 60,
@@ -156,7 +156,7 @@ export const summerProducts = [
   {
     "id": 15,
     "name": "Cooler Backpack",
-    "brand": "FrostTrail",
+    "brand": "GlowGuard",
     "price": 65,
     "rating": 4.4,
     "stock": 35,
@@ -167,7 +167,7 @@ export const summerProducts = [
   {
     "id": 16,
     "name": "Vitamin C Serum",
-    "brand": "RadiantSun",
+    "brand": "ShoreShelter",
     "price": 42,
     "rating": 4.8,
     "stock": 120,
@@ -178,7 +178,7 @@ export const summerProducts = [
   {
     "id": 17,
     "name": "Canvas Espadrilles",
-    "brand": "StepSunny",
+    "brand": "IsleStyle",
     "price": 55,
     "rating": 4.3,
     "stock": 75,
@@ -189,7 +189,7 @@ export const summerProducts = [
   {
     "id": 18,
     "name": "Collapsible Beach Chair",
-    "brand": "LoungeLife",
+    "brand": "BreezeWear",
     "price": 48,
     "rating": 4.5,
     "stock": 50,
@@ -200,7 +200,7 @@ export const summerProducts = [
   {
     "id": 19,
     "name": "Face Mist with Rose Water",
-    "brand": "DewDrop",
+    "brand": "SunShade",
     "price": 16,
     "rating": 4.7,
     "stock": 140,
@@ -211,7 +211,7 @@ export const summerProducts = [
   {
     "id": 20,
     "name": "Striped Beach Towel",
-    "brand": "CabanaClub",
+    "brand": "PureShield",
     "price": 25,
     "rating": 4.6,
     "stock": 95,
@@ -222,7 +222,7 @@ export const summerProducts = [
   {
     "id": 21,
     "name": "Aviator Sunglasses",
-    "brand": "SkyHigh",
+    "brand": "GlowGuard",
     "price": 110,
     "rating": 4.8,
     "stock": 25,
@@ -233,7 +233,7 @@ export const summerProducts = [
   {
     "id": 22,
     "name": "Men's Cargo Shorts",
-    "brand": "TrailRough",
+    "brand": "ShoreShelter",
     "price": 38,
     "rating": 4.4,
     "stock": 110,
@@ -244,7 +244,7 @@ export const summerProducts = [
   {
     "id": 23,
     "name": "Electric Handheld Fan",
-    "brand": "BreezeGo",
+    "brand": "IsleStyle",
     "price": 20,
     "rating": 4.2,
     "stock": 200,
@@ -255,7 +255,7 @@ export const summerProducts = [
   {
     "id": 24,
     "name": "Waterproof Phone Pouch",
-    "brand": "AquaSafe",
+    "brand": "BreezeWear",
     "price": 14,
     "rating": 4.6,
     "stock": 300,
@@ -266,7 +266,7 @@ export const summerProducts = [
   {
     "id": 25,
     "name": "Exfoliating Coffee Scrub",
-    "brand": "BeanBody",
+    "brand": "SunShade",
     "price": 19,
     "rating": 4.8,
     "stock": 80,
@@ -277,7 +277,7 @@ export const summerProducts = [
   {
     "id": 26,
     "name": "Slide Sandals",
-    "brand": "CloudStep",
+    "brand": "PureShield",
     "price": 30,
     "rating": 4.5,
     "stock": 130,
@@ -288,7 +288,7 @@ export const summerProducts = [
   {
     "id": 27,
     "name": "Boho Beaded Necklace",
-    "brand": "GypsyGem",
+    "brand": "GlowGuard",
     "price": 24,
     "rating": 4.3,
     "stock": 60,
@@ -299,7 +299,7 @@ export const summerProducts = [
   {
     "id": 28,
     "name": "Picnic Blanket",
-    "brand": "MeadowRest",
+    "brand": "ShoreShelter",
     "price": 40,
     "rating": 4.7,
     "stock": 45,
@@ -310,7 +310,7 @@ export const summerProducts = [
   {
     "id": 29,
     "name": "Hydrogel Lip Mask",
-    "brand": "SmoothKiss",
+    "brand": "IsleStyle",
     "price": 5,
     "rating": 4.4,
     "stock": 400,
@@ -321,7 +321,7 @@ export const summerProducts = [
   {
     "id": 30,
     "name": "Snorkel Mask Set",
-    "brand": "DeepBlue",
+    "brand": "BreezeWear",
     "price": 55,
     "rating": 4.6,
     "stock": 30,
@@ -329,4 +329,4 @@ export const summerProducts = [
     "image": "https://images.unsplash.com/photo-1683614145897-571b814b041b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "category": "Beach Gear"
   }
-]
+];
