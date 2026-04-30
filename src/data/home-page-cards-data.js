@@ -1,4 +1,4 @@
-import { Droplets, Leaf, ShieldCheck, Sparkles, Sun, Trees, Waves, Wind } from "lucide-react";
+import { Award, Droplets, Info, Leaf, ShieldCheck, Sparkles, Sun, Trees, Waves, Wind } from "lucide-react";
 import { BsSunFill } from "react-icons/bs";
 import { HiFire } from "react-icons/hi";
 import { MdBeachAccess } from "react-icons/md";
@@ -71,4 +71,25 @@ export const brands = [
     { id: 4, name: "ShoreShelter", icon: <Waves className="w-6 h-6" />, color: "text-cyan-600" },
     { id: 5, name: "IsleStyle", icon: <Trees className="w-6 h-6" />, color: "text-green-600" },
     { id: 6, name: "BreezeWear", icon: <Wind className="w-6 h-6" />, color: "text-teal-600" },
+]
+
+export const productAdditionalInfo = [
+    {
+        id: 1,
+        icon: <Award size={24} />,
+        title: "Premium Quality",
+        description: "Each product is crafted with high-grade materials ensuring maximum durability for the summer season. Our brand {product.brand} focuses on both style and comfort."
+    },
+    {
+        id: 2,
+        icon: <Leaf size={24} />,
+        title: "Eco-Friendly & Care",
+        description: "Store in a cool, dry place. For long-lasting use, clean with a damp microfiber cloth. Our products are made from sustainable sources wherever possible."
+    },
+    {
+        id: 3,
+        icon: <Info size={24} />,
+        title: "Shipping & Support",
+        description: "We ship globally with tracking provided. Our 24/7 support team is always ready to help you with your purchase and technical questions."
+    },
 ]

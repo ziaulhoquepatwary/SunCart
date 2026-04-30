@@ -32,7 +32,7 @@ function ProductCart({ product }) {
 
                 {/* View Details Button */}
                 <Link
-                    href={`/products/${product.id}`}
+                    href={`/products/${product.name}`}
                     className="block w-full text-center bg-gray-900 text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors mt-4"
                 >
                     View Details
