@@ -1,4 +1,4 @@
-import { Droplets, Leaf, Sun, Wind } from "lucide-react";
+import { Droplets, Leaf, ShieldCheck, Sparkles, Sun, Trees, Waves, Wind } from "lucide-react";
 import { BsSunFill } from "react-icons/bs";
 import { HiFire } from "react-icons/hi";
 import { MdBeachAccess } from "react-icons/md";
@@ -62,4 +62,13 @@ export const skinTips = [
         icon: <Wind className="w-8 h-8 text-teal-500" />,
         bgColor: "bg-teal-50"
     }
+]
+
+export const brands = [
+    { id: 1, name: "SunShade", icon: <Sun className="w-6 h-6" />, color: "text-orange-600" },
+    { id: 2, name: "PureShield", icon: <ShieldCheck className="w-6 h-6" />, color: "text-blue-600" },
+    { id: 3, name: "GlowGuard", icon: <Sparkles className="w-6 h-6" />, color: "text-pink-600" },
+    { id: 4, name: "ShoreShelter", icon: <Waves className="w-6 h-6" />, color: "text-cyan-600" },
+    { id: 5, name: "IsleStyle", icon: <Trees className="w-6 h-6" />, color: "text-green-600" },
+    { id: 6, name: "BreezeWear", icon: <Wind className="w-6 h-6" />, color: "text-teal-600" },
 ]
