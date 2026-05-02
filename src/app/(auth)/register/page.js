@@ -1,16 +1,40 @@
 "use client";
+import { authClient } from '@/lib/auth-client';
 import Link from 'next/link'
+import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form'
 import { FaHome } from 'react-icons/fa';
 import { FaFacebook } from 'react-icons/fa6';
 import { FcGoogle } from 'react-icons/fc';
+import Swal from 'sweetalert2';
 
 function Register() {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const router = useRouter();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
-    const onSubmit = (data) => {
-        console.log("Form data Submitted", data);
+    const handleRegister = async (userData) => {
+        console.log("Form data Submitted", userData);
 
+        const { data, error } = await authClient.signUp.email({
+            name: userData.name,
+            email: userData.email,
+            password: userData.password,
+            image: userData.photoUrl,
+            callbackURL: "/",
+        })
+
+        console.log(data, error);
+
+        if (error) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: error.message,
+            });
+            reset();
+        } else {
+            router.push("/login");
+        }
     }
 
 
@@ -31,14 +55,14 @@ function Register() {
                     <p className="text-gray-500 mt-2">Join us by filling out the details below</p>
                 </div>
 
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                <form onSubmit={handleSubmit(handleRegister)} className="space-y-4">
                     {/* Name Field */}
                     <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-1 ml-1">Full Name</label>
                         <input
                             {...register("name", { required: "Name is required" })}
                             type="text"
-                            placeholder="John Doe"
+                            placeholder="type your name"
                             className={`w-full px-4 py-3 rounded-xl border ${errors.name ? 'border-red-500' : 'border-gray-200'} focus:ring-2 focus:ring-blue-500 outline-none transition-all bg-gray-50 focus:bg-white`}
                         />
                         {errors.name && <p className="text-red-500 text-xs mt-1 ml-1">{errors.name.message}</p>}
@@ -56,7 +80,7 @@ function Register() {
                                 }
                             })}
                             type="email"
-                            placeholder="name@email.com"
+                            placeholder="type your email"
                             className={`w-full px-4 py-3 rounded-xl border ${errors.email ? 'border-red-500' : 'border-gray-200'} focus:ring-2 focus:ring-blue-500 outline-none transition-all bg-gray-50 focus:bg-white`}
                         />
                         {errors.email && <p className="text-red-500 text-xs mt-1 ml-1">{errors.email.message}</p>}
@@ -68,7 +92,7 @@ function Register() {
                         <input
                             {...register("photoUrl")}
                             type="url"
-                            placeholder="https://image-link.com"
+                            placeholder="type your image url"
                             className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all bg-gray-50 focus:bg-white"
                         />
                     </div>
