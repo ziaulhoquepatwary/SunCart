@@ -1,14 +1,36 @@
 "use client";
+import { authClient } from "@/lib/auth-client";
 import Link from "next/link"
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { FaFacebook, FaHome } from "react-icons/fa"
 import { FcGoogle } from "react-icons/fc"
+import Swal from "sweetalert2";
 
 function Login() {
+    const router = useRouter();
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const onSubmit = (data) => {
-        console.log("Login Data Submitted:", data);
+    const onSubmit = async (userData) => {
+        console.log("Login Data Submitted:", userData);
+
+        const { data, error } = await authClient.signIn.email({
+            email: userData.email,
+            password: userData.password,
+        });
+
+        console.log(data, error);
+
+        if (error) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: error.message,
+            });
+            reset();
+        } else {
+            router.push("/");
+        }
     }
 
 
@@ -45,7 +67,7 @@ function Login() {
                                 }
                             })}
                             type="email"
-                            placeholder="name@email.com"
+                            placeholder="type your email"
                             className={`w-full px-4 py-3 rounded-xl border ${errors.email ? 'border-red-500' : 'border-gray-200'} focus:ring-2 focus:ring-blue-500 outline-none transition-all bg-gray-50 focus:bg-white`}
                         />
                         {errors.email && <p className="text-red-500 text-xs mt-1 ml-1">{errors.email.message}</p>}
