@@ -1,13 +1,19 @@
 "use client";
-import { Home, Menu, ShoppingBag, UserRound, X } from 'lucide-react';
+import { authClient } from '@/lib/auth-client';
+import { Home, LogOut, Menu, ShoppingBag, User, UserRound, X } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
+import { FiShoppingCart } from 'react-icons/fi';
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [avatarMenuOpen, setAvatarMenuOpen] = useState(false);
+    const { data: session, isPending } = authClient.useSession();
     const pathname = usePathname();
     const brandColor = "#42D3F2";
+
+    const user = session?.user;
 
     const navLinks = [
         { name: 'Home', icon: <Home size={18} />, href: '/' },
@@ -48,18 +54,81 @@ function Navbar() {
                         })}
                     </div>
 
-                    {/* Auth Buttons — Right (Desktop) */}
-                    <div className="hidden md:flex items-center gap-3">
-                        <Link href="/login" className="px-5 py-3 text-sm font-semibold text-gray-700 hover:text-[#42D3F2] transition-colors">
-                            Login
+                    <div className="hidden md:flex items-center gap-2">
+                        <Link href="/cart" className="relative text-gray-600 hover:text-[#42D3F2] transition-colors px-2">
+                            <FiShoppingCart size={24} />
+                            <span className="absolute -top-2 right-0 bg-[#42D3F2] text-white text-[10px] font-semibold w-4 h-4 rounded-full flex items-center justify-center">
+                                0
+                            </span>
                         </Link>
-                        <Link
-                            href="/register"
-                            style={{ backgroundColor: brandColor }}
-                            className="px-5 py-2.5 text-sm font-semibold text-white rounded-lg hover:opacity-90 shadow-md transition-all shadow-cyan-200"
-                        >
-                            Register
-                        </Link>
+
+                        {/* Auth Buttons — Right (Desktop) */}
+                        {isPending ? (
+                            <div className="w-9 h-9 rounded-full bg-sky-400 animate-pulse" />
+                        ) : user ? (
+                            <div className="relative">
+                                <button
+                                    onClick={() => setAvatarMenuOpen(prev => !prev)}
+                                    className="w-10 h-10 rounded-full overflow-hidden border-2 border-[#42D3F2] hover:opacity-90 transition-opacity"
+                                >
+                                    <img
+                                        src={user?.image || "/user.png"}
+                                        alt={user?.name}
+                                        className="object-cover w-full h-full"
+                                    />
+                                </button>
+
+                                {avatarMenuOpen && (
+                                    <div className="absolute right-0 top-12 w-56 bg-white rounded-xl border border-gray-100 shadow-lg shadow-cyan-50 z-50">
+                                        <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-100">
+                                            <img
+                                                src={user?.image || "/user.png"}
+                                                alt={user?.name}
+                                                className="w-10 h-10 rounded-full object-cover"
+                                            />
+                                            <div className="overflow-hidden">
+                                                <p className="text-sm font-semibold text-gray-800 truncate">{user?.name}</p>
+                                                <p className="text-xs text-gray-400 truncate">{user?.email}</p>
+                                            </div>
+                                        </div>
+
+                                        <div className="p-2">
+                                            <Link
+                                                href="/my-profile"
+                                                onClick={() => setAvatarMenuOpen(false)}
+                                                className="flex items-center gap-2 w-full px-3 py-2 text-sm text-gray-700 rounded-lg hover:bg-cyan-50 hover:text-[#42D3F2] transition-colors"
+                                            >
+                                                <User size={15} />
+                                                My Profile
+                                            </Link>
+                                            <button
+                                                onClick={() => {
+                                                    setAvatarMenuOpen(false);
+                                                    authClient.signOut();
+                                                }}
+                                                className="flex items-center gap-2 w-full px-3 py-2 text-sm text-red-500 rounded-lg hover:bg-red-50 transition-colors"
+                                            >
+                                                <LogOut size={15} />
+                                                Logout
+                                            </button>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        ) : (
+                            <div className="flex items-center gap-3">
+                                <Link href="/login" className="px-5 py-3 text-sm font-semibold text-gray-700 hover:text-[#42D3F2] transition-colors">
+                                    Login
+                                </Link>
+                                <Link
+                                    href="/register"
+                                    style={{ backgroundColor: brandColor }}
+                                    className="px-5 py-2.5 text-sm font-semibold text-white rounded-lg hover:opacity-90 shadow-md transition-all shadow-cyan-200"
+                                >
+                                    Register
+                                </Link>
+                            </div>
+                        )}
                     </div>
 
                     {/* Mobile Burger Button */}
@@ -77,6 +146,21 @@ function Navbar() {
             {/* Mobile Menu Dropdown */}
             <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-white ${isOpen ? 'max-h-screen border-t' : 'max-h-0'}`}>
                 <div className="px-4 pt-4 pb-6 space-y-2">
+
+                    {user && (
+                        <div className="flex items-center gap-3 px-4 py-4 mb-2 bg-cyan-50 rounded-2xl border border-cyan-100">
+                            <img
+                                src={user?.image || "/user.png"}
+                                alt={user?.name}
+                                className="w-12 h-12 rounded-full object-cover border-2 border-[#42D3F2]"
+                            />
+                            <div className="overflow-hidden">
+                                <p className="font-bold text-gray-900 truncate">{user?.name}</p>
+                                <p className="text-xs text-gray-500 truncate">{user?.email}</p>
+                            </div>
+                        </div>
+                    )}
+
                     {navLinks.map((link) => {
                         const isActive = pathname === link.href;
                         return (
@@ -94,14 +178,30 @@ function Navbar() {
                         );
                     })}
 
-                    {/* Auth Buttons (Mobile) */}
                     <div className="pt-4 border-t border-gray-100 flex flex-col gap-2">
-                        <Link href="/login" onClick={() => setIsOpen(false)} className="w-full py-3 text-center font-semibold text-gray-700 rounded-xl bg-gray-200">
-                            Login
-                        </Link>
-                        <Link href="/register" onClick={() => setIsOpen(false)} style={{ backgroundColor: brandColor }} className="w-full py-3 text-center font-semibold text-white rounded-xl shadow-lg shadow-cyan-100">
-                            Register
-                        </Link>
+                        {isPending ? (
+                            <div className="w-full h-12 bg-gray-100 animate-pulse rounded-xl" />
+                        ) : user ? (
+                            <button
+                                onClick={() => {
+                                    setIsOpen(false);
+                                    authClient.signOut();
+                                }}
+                                className="flex items-center justify-center gap-2 w-full py-3 text-center font-semibold text-red-500 rounded-xl bg-red-50 hover:bg-red-100 transition-colors"
+                            >
+                                <LogOut size={18} />
+                                Logout
+                            </button>
+                        ) : (
+                            <>
+                                <Link href="/login" onClick={() => setIsOpen(false)} className="w-full py-3 text-center font-semibold text-gray-700 rounded-xl bg-gray-100">
+                                    Login
+                                </Link>
+                                <Link href="/register" onClick={() => setIsOpen(false)} style={{ backgroundColor: brandColor }} className="w-full py-3 text-center font-semibold text-white rounded-xl shadow-lg shadow-cyan-100">
+                                    Register
+                                </Link>
+                            </>
+                        )}
                     </div>
                 </div>
             </div>

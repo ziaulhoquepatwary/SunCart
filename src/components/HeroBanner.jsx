@@ -25,6 +25,7 @@ function HeroBanner() {
                 fill
                 priority
                 className="object-cover transition-opacity duration-1000"
+                suppressHydrationWarning
             />
 
             {/* Overlays */}

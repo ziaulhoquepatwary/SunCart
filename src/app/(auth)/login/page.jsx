@@ -9,7 +9,7 @@ import Swal from "sweetalert2";
 
 function Login() {
     const router = useRouter();
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     const onSubmit = async (userData) => {
         console.log("Login Data Submitted:", userData);
