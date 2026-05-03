@@ -37,6 +37,15 @@ function Register() {
         }
     }
 
+    const handleGoogleSignIn = async () => {
+        const data = await authClient.signIn.social({
+            provider: "google",
+        })
+
+        console.log(data);
+        
+    }
+
 
     return (
         <section className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
@@ -142,6 +151,7 @@ function Register() {
                 {/* Social Register Buttons */}
                 <div className="grid grid-cols-2 gap-4 mb-8">
                     <button
+                        onClick={handleGoogleSignIn}
                         type="button"
                         className="flex items-center justify-center gap-2 py-2.5 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors text-sm font-semibold text-gray-700"
                     >
