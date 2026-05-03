@@ -55,12 +55,12 @@ function Navbar() {
                     </div>
 
                     <div className="hidden md:flex items-center gap-2">
-                        <Link href="/cart" className="relative text-gray-600 hover:text-[#42D3F2] transition-colors px-2">
+                        <div className="relative text-gray-600 hover:text-[#42D3F2] transition-colors px-2">
                             <FiShoppingCart size={24} />
                             <span className="absolute -top-2 right-0 bg-[#42D3F2] text-white text-[10px] font-semibold w-4 h-4 rounded-full flex items-center justify-center">
                                 0
                             </span>
-                        </Link>
+                        </div>
 
                         {/* Auth Buttons — Right (Desktop) */}
                         {isPending ? (

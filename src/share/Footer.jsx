@@ -26,15 +26,15 @@ const Footer = () => {
                         </p>
                         {/* Social Links */}
                         <div className="flex items-center gap-4 pt-2">
-                            <a href="#" className="p-2 rounded-full bg-blue-50 text-[#1877F2] hover:bg-[#1877F2] hover:text-white transition-all duration-300">
+                            <div className="p-2 rounded-full bg-blue-50 text-[#1877F2] hover:bg-[#1877F2] hover:text-white transition-all duration-300">
                                 <IoLogoFacebook size={18} />
-                            </a>
-                            <a href="#" className="p-2 rounded-full bg-pink-50 text-[#E4405F] hover:bg-[#E4405F] hover:text-white transition-all duration-300">
+                            </div>
+                            <div className="p-2 rounded-full bg-pink-50 text-[#E4405F] hover:bg-[#E4405F] hover:text-white transition-all duration-300">
                                 <FaSquareInstagram size={18} />
-                            </a>
-                            <a href="#" className="p-2 rounded-full bg-gray-50 text-black hover:bg-black hover:text-white transition-all duration-300">
+                            </div>
+                            <div className="p-2 rounded-full bg-gray-50 text-black hover:bg-black hover:text-white transition-all duration-300">
                                 <FaXTwitter size={18} />
-                            </a>
+                            </div>
                         </div>
                     </div>
 
@@ -44,16 +44,16 @@ const Footer = () => {
                             <h3 className="text-gray-900 font-bold mb-4">Shop</h3>
                             <ul className="space-y-2 text-sm text-gray-600">
                                 <li><Link href="/products" className="hover:text-[#42D3F2]">All Products</Link></li>
-                                <li><Link href="/sunglasses" className="hover:text-[#42D3F2]">Sunglasses</Link></li>
-                                <li><Link href="/outfits" className="hover:text-[#42D3F2]">Summer Outfits</Link></li>
+                                <li><div className="hover:text-[#42D3F2]">Sunglasses</div></li>
+                                <li><div className="hover:text-[#42D3F2]">Summer Outfits</div></li>
                             </ul>
                         </div>
                         <div>
                             <h3 className="text-gray-900 font-bold mb-4">Support</h3>
                             <ul className="space-y-2 text-sm text-gray-600">
-                                <li><Link href="/privacy-policy" className="hover:text-[#42D3F2]">Privacy Policy</Link></li>
-                                <li><Link href="/terms" className="hover:text-[#42D3F2]">Terms of Service</Link></li>
-                                <li><Link href="/faq" className="hover:text-[#42D3F2]">FAQs</Link></li>
+                                <li><div className="hover:text-[#42D3F2]">Privacy Policy</div></li>
+                                <li><div className="hover:text-[#42D3F2]">Terms of Service</div></li>
+                                <li><div className="hover:text-[#42D3F2]">FAQs</div></li>
                             </ul>
                         </div>
                     </div>
