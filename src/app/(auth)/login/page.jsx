@@ -77,9 +77,6 @@ function Login() {
                     <div>
                         <div className="flex justify-between items-center mb-1 ml-1">
                             <label className="block text-sm font-semibold text-gray-700">Password</label>
-                            <Link href="/forgot-password" size="sm" className="text-xs text-blue-600 hover:underline">
-                                Forgot Password?
-                            </Link>
                         </div>
                         <input
                             {...register("password", {
@@ -102,6 +99,9 @@ function Login() {
                         <label htmlFor="remember" className="ml-2 block text-sm text-gray-600 cursor-pointer">
                             Remember me
                         </label>
+                        <Link href="/forgot-password" size="sm" className="text-xs text-blue-600 hover:underline ml-auto">
+                            Forgot Password?
+                        </Link>
                     </div>
 
                     {/* Login Button */}
