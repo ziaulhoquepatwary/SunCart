@@ -1,7 +1,7 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link"
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { FaFacebook, FaHome } from "react-icons/fa"
 import { FcGoogle } from "react-icons/fc"
@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 
 function Login() {
     const router = useRouter();
+    const searchParams = useSearchParams();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     const onSubmit = async (userData) => {
@@ -29,7 +30,8 @@ function Login() {
             });
             reset();
         } else {
-            router.push("/");
+            const redirectTo = searchParams.get("redirect");
+            router.push(redirectTo || "/");
         }
     }
 
